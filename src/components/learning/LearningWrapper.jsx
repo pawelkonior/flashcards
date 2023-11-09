@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getDeckAndFlashcards } from "/src/api/api.js";
-import FlashCard from "../flashcards/FlashCard.jsx";
+import FlashCards from "../flashcards/FlashCards.jsx";
 
 function LearningWrapper() {
   const { deckId } = useParams();
@@ -31,10 +31,7 @@ function LearningWrapper() {
     <div>
       Learning: {deckId} {deck.name} {deck.description}
       {flashcards.length ? (
-        <FlashCard
-          question={flashcards[0].question}
-          answer={flashcards[0].answer}
-        />
+        <FlashCards flashcards={flashcards} />
       ) : (
         <p>Flashcards not found</p>
       )}
